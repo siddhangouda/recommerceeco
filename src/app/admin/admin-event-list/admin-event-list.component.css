@@ -1,0 +1,21 @@
+.bd1 {
+    /* border: hotpink 1px solid; */
+    box-shadow:  -11px -13px 75px -31px rgba(0,0,0,0.75)
+}
+.eventImage {
+    width: 100%;
+
+}
+.eventName {
+    background: chocolate;
+    color: cornsilk;
+    height: 25px;
+    line-height: 25px;
+}
+
+.eventEdit {
+    background: rgb(82, 162, 209);
+    color: cornsilk;
+    height: 25px;
+    line-height: 25px;
+}

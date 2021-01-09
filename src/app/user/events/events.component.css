@@ -1,0 +1,11 @@
+.img180 {
+    height: 180px;
+    
+}
+.headin1{
+    font-family: monospace;
+    padding: 25px;
+}
+.boxshadow{
+    box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.55) !important;
+}

@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: 'open sans' Roboto, Helvetica Neue, sans-serif; 
+    font-size: 18px;
+    padding: 0;
+    outline: 0;
+    font-weight: 300;
+}
+.txt {
+    color: wheat ;
+    padding: 40px;
+    margin: 0px;
+    font-weight: 300;
+    
+
+}
+.headcolor{
+    color:#092346;
+    font-weight: 300;
+}
+.jump {
+    color: whitesmoke;
+}
+.ht20 {
+    height: 20px;
+}
+
+.bdbottom{
+    height: 2px;
+    background-color: brown;
+    width: 10px;
+    margin: 0px auto;
+    display: block;
+}
+.form-control {
+    margin: 10px;
+}
+.link1
+    {
+        font-size: 17px;
+        text-align: right;
+        margin: 0px;
+    }
+
+
+    .nav-link:hover {
+        background-color:darkslategrey;
+        color: whitesmoke;
+    }
+
+  
+
+    .headcolor:after{display:block;
+        content: '';
+        border-bottom: solid 3px #af4f17;  
+        transform: scaleX(0.01);  
+        transition: transform 250ms ease-in-out;
+    } 
+    li.nav-link{
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .headcolor:hover:after { transform: scaleX(0.12); }

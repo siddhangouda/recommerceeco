@@ -1,0 +1,13 @@
+.img7 {
+    width:86px;
+    margin: 22px;
+}
+.pad0 {
+    padding: 0px;;
+}
+.lineht {
+    line-height: 44px;
+}
+.bgr {
+    background: repeating-radial-gradient(black, #c33030d1 100px);
+}

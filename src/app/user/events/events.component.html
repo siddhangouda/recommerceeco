@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row ">
+        <div class="row">
+            <h1 class="text-center headin1"> Event Lists </h1>
+            <!-- <div class="border_page"></div> -->
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="row">
+                    <button type="button" class="btn btn-outline-success mb-2 boxshadow">Active Events</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-outline-danger mb-2 boxshadow">Upcoming Events </button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-outline-warning mb-2 boxshadow">Completed Events</button>
+                </div>
+            </div>
+
+            <div class="col-sm-1">
+            </div>
+
+            <div class="col-sm-7">
+                <div class="row bd1" *ngIf="events.length == 0" style="background: #ffffff;">
+                    <p> There is no event added yet </p>
+                </div>
+
+                <div class="row bd1">
+                    <div class="row">
+                        <div class="col-sm-4" bd1 *ngFor="let event of events">
+                               <div class=" boxshadow"> <a [title]="event.name" [routerLink]="['/register', event.id] " target="_blank">  <img class="fade-in card-img-top img180 rounded"
+                                    src="{{event.fileUpload}}"></a>
+                            </div>
+                            <div class="card-text  text-center eventName">{{event.name}}</div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div> -->
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>

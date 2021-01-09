@@ -1,0 +1,65 @@
+<div class="row ">
+    <div class="row">
+        <h1 class="mat-display-1 text-center"> Event Lists </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="row">
+                <button type="button" class="btn btn-outline-success mb-2">Active Events</button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-danger mb-2">Upcoming Events </button>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-outline-warning mb-2">Completed Events</button>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-1">
+
+
+
+        </div>
+
+
+        <div class="col-sm-7">
+
+            <div class="row bd1" *ngIf="events.length == 0" style="background: #ffffff;">
+
+                <p> There is no event added yet </p>
+            </div>
+
+            <div class="row bd1" style="background: #b7b4b0;">
+                <div class="row">
+                    <div class="col-sm-4" bd1 *ngFor="let event of events">
+                        <div class=" "> <img class="eventImage" src="{{event.fileUpload}}">
+                        </div>
+                        <div class="  text-center eventName"> {{event.name}} </div>
+                        <div class="  text-center eventEdit"> <button class="  text-center eventEdit"
+                                (click)="openEditForm()"> Edit</button>
+                            <button class="  text-center eventEdit" (click)="deleteEvent(event)"> Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+</div>

@@ -24,6 +24,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,9 +89,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "/node_modules/primeng/resources/themes/nova-light/theme.css",
+              ],
+            "scripts": [
+              "src/app/register/testimonals/testimonals.js"
+            ]
           }
         },
         "lint": {
@@ -120,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "Recommerceeco"
+  "defaultProject": "Recommerceeco",
+  "cli": {
+    "analytics": "205bc650-5230-4447-82d3-aac8db13bd53"
+  }
 }

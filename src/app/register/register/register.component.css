@@ -1,0 +1,38 @@
+
+.registerbanner{width: 100%;
+float: left;
+background-image:url('https://attachment.outlook.live.net/owa/MSA%3Asiddhangouda%40hotmail.com/service.svc/s/GetFileAttachment?id=AQMkADAwATY0MDABLWJiADQ3LWYzNzktMDACLTAwCgBGAAADN75Bjwnm90yLqfWuEPcXbwcApj3zoTG%2Bhk2fCdPLb6Q7PwAAAgEMAAAApj3zoTG%2Bhk2fCdPLb6Q7PwAErnJoWgAAAAESABAAfHHcczwao06jENmdzJHr%2Bg%3D%3D&isc=1&token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjMwODE3OUNFNUY0QjUyRTc4QjJEQjg5NjZCQUY0RUNDMzcyN0FFRUUiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJNSUY1emw5TFV1ZUxMYmlXYTY5T3pEY25ydTQifQ.eyJvcmlnaW4iOiJodHRwczovL291dGxvb2subGl2ZS5jb20iLCJ1YyI6ImMyZWQ4ZWNiNmU5YzRiZGVhNDI1YTIxNjllOWZmNmNmIiwidmVyIjoiRXhjaGFuZ2UuQ2FsbGJhY2suVjEiLCJhcHBjdHhzZW5kZXIiOiJPd2FEb3dubG9hZEA4NGRmOWU3Zi1lOWY2LTQwYWYtYjQzNS1hYWFhYWFhYWFhYWEiLCJpc3NyaW5nIjoiV1ciLCJhcHBjdHgiOiJ7XCJtc2V4Y2hwcm90XCI6XCJvd2FcIixcInB1aWRcIjpcIjE3NTkyMjE3NDY0OTYzNzdcIixcInNjb3BlXCI6XCJPd2FEb3dubG9hZFwiLFwib2lkXCI6XCIwMDA2NDAwMC1iYjQ3LWYzNzktMDAwMC0wMDAwMDAwMDAwMDBcIixcInByaW1hcnlzaWRcIjpcIlMtMS0yODI3LTQwOTYwMC0zMTQyMDU0Nzc3XCJ9IiwibmJmIjoxNjEwMTA0MTMwLCJleHAiOjE2MTAxMDQ3MzAsImlzcyI6IjAwMDAwMDAyLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEA4NGRmOWU3Zi1lOWY2LTQwYWYtYjQzNS1hYWFhYWFhYWFhYWEiLCJhdWQiOiIwMDAwMDAwMi0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvYXR0YWNobWVudC5vdXRsb29rLmxpdmUubmV0QDg0ZGY5ZTdmLWU5ZjYtNDBhZi1iNDM1LWFhYWFhYWFhYWFhYSIsImhhcHAiOiJvd2EifQ.cccnHgwvaqNVG5yktx0mRn10XSCQ8qMYcobnDTSQs40GigE0GYNF_nHsCdqQzZr2u0njm_67WvHN4SMRDYdTscIK4Ty9EUV8HFd3DIAjOKWyiK64V1-x1bQeFTcX-X2jYqp1vS3zNy4Wukq96D7DRrE5nvD6ZtYKHF3vEc_6rnJRp03gKGe7Iz5FhGM-CuqxMZlM3c7tqt5Goyzlb8rDo4ZGz4zbwRaNIPHA-jgpWHRE7e0vF8tWJASymyE7a6OIJSC26LN0SZVqBdRW6mx3SiwKT-Zj_DzhMEeib_OAp9XZAXzdUKSYqDe1D9TmKnv56WgvO8Fm0KZRTmNV3tbKOg&X-OWA-CANARY=mEve7J0g4ki1xCjdyoN0wKC2vPDFs9gYDzePxzg4aSyyhVAhiFXnDYNOSW5mNWbJ7ZO3PERVeio.&owa=outlook.live.com&scriptVer=20201228001.03&isDownload=true&animation=true');
+background-size: 100%;
+height: 32%;
+background :darkslategrey;
+}
+
+.btn {
+width: 300px;
+margin: 20px;
+}
+
+
+
+
+.nav-item::after{content:'';display:block;width:0px;height:2px;background:#e2e2dd;transition: 0.2s;}
+.nav-item:hover::after{width:80%;}
+
+
+.elementToFadeInAndOut {
+    -webkit-animation: fadeinout 10s linear forwards;
+    animation: fadeinout 2s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+

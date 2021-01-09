@@ -1,0 +1,64 @@
+{
+  "EventList": [
+    {
+      "id": "1",
+      "name": "food waste",
+      "startDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 12
+      },
+      "endDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 11
+      },
+      "status": "Completed",
+      "registrationCharge": 1,
+      "registrationTax": 18,
+      "description": "",
+      "fileUpload": "C:\\fakepath\\88.jpg",
+      "registrationTotal": 19
+    },
+    {
+      "id": "02",
+      "name": "battery",
+      "startDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 10
+      },
+      "endDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 4
+      },
+      "status": "Active",
+      "registrationCharge": 1,
+      "registrationTax": 18,
+      "description": "",
+      "fileUpload": "",
+      "registrationTotal": 19
+    },
+    {
+      "id": "GWbMmgw",
+      "name": "",
+      "startDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 7
+      },
+      "endDate": {
+        "year": 2020,
+        "month": 12,
+        "day": 31
+      },
+      "status": "Completed",
+      "registrationCharge": 1,
+      "registrationTax": 18,
+      "description": "",
+      "fileUpload": "",
+      "registrationTotal": 19
+    }
+  ]
+}

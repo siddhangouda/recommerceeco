@@ -1,0 +1,119 @@
+<!-- creating a container-sm -->
+<div class="p-3 container-sm">
+    <!-- left space for logo -->
+    <div class="row">
+        <div class="col-sm-9 p-3">
+            <img src="https://recommerceeco.com/assets/website/images/logo.png" width="200">
+        </div>
+        <!-- right logo button toggle-->
+        <div class="col-sm-3 p-3 right">
+            <button class="btn btn-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"> add Event
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+            <div class="card">
+                <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="example-container">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Event Id </mat-label>
+                                        <input matInput formControlName="id">
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Status</mat-label>
+                                        <mat-select matInput formControlName="status">
+                                            <mat-option value="Upcoming">Upcoming</mat-option>
+                                            <mat-option value="Completed">Completed</mat-option>
+                                            <mat-option value="Active">Active</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="example-container">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Event name </mat-label>
+                                        <input matInput formControlName="name">
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Registration Charge</mat-label>
+                                        <input matInput formControlName="registrationCharge"
+                                            [(ngModel)]="registrationCharge">
+                                    </mat-form-field>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="example-container">
+                                    <div class="input-group">
+                                        <input class="form-control customInput" placeholder="Start Date"
+                                            name="startDate" [(ngModel)]="startDate" ngbDatepicker #a="ngbDatepicker"
+                                            formControlName="startDate">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" (click)="a.toggle()"
+                                                type="button"></button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Registration Tax</mat-label>
+                                        <input matInput formControlName="registrationTax" [(ngModel)]="registrationTax">
+                                    </mat-form-field>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="example-container">
+                                    <div class="input-group">
+                                        <input class="form-control customInput" placeholder="End Date" name="dp"
+                                            [(ngModel)]="endDate" ngbDatepicker #d="ngbDatepicker"
+                                            formControlName="endDate">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                                                type="button"></button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Total</mat-label>
+
+                                        <input matInput formControlName="registrationTotal" value='{{ total }}'
+                                            [(ngModel)]="total">
+                                    </mat-form-field>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <mat-label>Event description</mat-label>
+                                <textarea matInput formControlName="description"></textarea>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label"></label>
+                                    <input class="form-control" type="file" id="formFile" formControlName="fileUpload">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-primary mr-1" type="submit" [disabled]="!eventForm.valid"> Submit
+                                </button>
+                                <button class="btn-primary" (click)="collapse.toggle()"> Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    fileupload {{eventForm.controls.fileUpload.value}}
+    <app-admin-event-list></app-admin-event-list>
+</div>
