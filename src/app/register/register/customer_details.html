@@ -40,7 +40,7 @@
       <div class="col-md-6">
 
           <input type="text" pattern="[0-9]{10}" class="form-control" name="Phone" placeholder="Phone Number" 
-          [(ngModel)]="phone" minlength="10" maxlength="10" #phoneV="ngModel" required>
+          [(ngModel)]="mobileNumber" minlength="10" maxlength="10" #phoneV="ngModel" required>
 
           <div class="alert alert-danger" *ngIf="phoneV.touched && !phoneV.valid">
               <div [hidden]="!phoneV.errors.required">Phone number is required.</div>

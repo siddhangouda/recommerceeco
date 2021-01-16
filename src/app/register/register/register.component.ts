@@ -15,22 +15,22 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class customer_details implements OnInit {
-  name;
-  city;
-  email;
-  phone;
+  fullname;
   company;
+  email;
+  mobileNumber;
+  city;
   designation;
-  api =   'http://52.66.120.154:89'
+  api =   'http://52.66.120.154:89/insertContact'
 
   constructor(public activeModal : NgbActiveModal,
     private modalserve : NgbModal,
     private http: HttpClient) { 
 
-      this.name = '';
+      this.fullname = '';
       this.city = '';
       this.email = '';
-      this.phone = '';
+      this.mobileNumber = '';
       this.company = '';
       this.designation = '';
     }
@@ -44,7 +44,8 @@ export class customer_details implements OnInit {
 
   agendaDetailsLog(agendaValues : any){
 
-this.http.post(this.api,  JSON.stringify(agendaValues))
+// this.http.post(this.api,  JSON.stringify(agendaValues))
+alert("data"+JSON.stringify(agendaValues))
 const link = document.createElement('a');
     link.setAttribute('target', '_blank');
     link.setAttribute('href', 'abc.net/files/test.ino');
