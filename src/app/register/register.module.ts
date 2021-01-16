@@ -14,15 +14,20 @@ import { FormsModule } from '@angular/forms';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
+import { BookstallComponent } from './bookstall/bookstall.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
-  declarations: [RegisterComponent, SupportedByComponent, OurpartnersComponent, MediapartnersComponent, AssociatonComponent, SpeakersComponent, TestimonalsComponent, FooterComponent, customer_details],
+  declarations: [RegisterComponent, SupportedByComponent, OurpartnersComponent, MediapartnersComponent, AssociatonComponent, SpeakersComponent, TestimonalsComponent, FooterComponent, customer_details, BookstallComponent],
   imports: [
     CommonModule,FormsModule,NgbModule,
     CarouselModule,
     ButtonModule,
     ToastModule,
     FormsModule,
+    RouterModule,
+  
     ]
 })
 export class RegisterModule { }

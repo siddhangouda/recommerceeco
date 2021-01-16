@@ -1,0 +1,510 @@
+<div class="container">
+    <div class="row pt-2 pb-2">
+        <div class="col-md-12 text-left">
+            <img src="https://recommerceeco.com/assets/website/images/logo.png" width="200">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="text-center headcolor size36 mt-4 mb-4">
+
+        Online Registration
+    </div>
+
+    <!-- radio button section -->
+    <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-3 pt-0"><b>Select Booking Type: </b></legend>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Partnership"
+                    checked [(ngModel)]="radioValue">
+                <label class="form-check-label" for="gridRadios1">
+                    <b>Partnership</b>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Exhibitor"
+                    [(ngModel)]="radioValue">
+                <label class="form-check-label" for="gridRadios2">
+                    <b> Exhibitor</b>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Conference"
+                    [(ngModel)]="radioValue">
+                <label class="form-check-label" for="gridRadios3">
+                    <b> Conference </b>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Visitor"
+                    [(ngModel)]="radioValue">
+                <label class="form-check-label" for="gridRadios3">
+                    <b> Visitor </b>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="container mt-4" style="background: #efefef;">
+
+
+        <div [ngSwitch]="radioValue">
+
+            <!-- for parnership         -->
+            <div *ngSwitchCase="'Partnership'">
+                <form class="row g-3"  #Partnership="ngForm" (ngSubmit)="partnershipLog(Partnership.value)">
+                    <div class="col-md-6">
+                        
+                        <input type="text" pattern="[a-z]{3,50}" class="form-control" id="name" name="name" placeholder="Full Name"
+                            [(ngModel)]="name" minlength="3" #nameV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="nameV.touched && !nameV.valid">
+                            <div [hidden]="!nameV.errors.required"> Name is required.</div>
+                            <div [hidden]="!nameV.errors.minlength">Name should be 3 char minimum </div>
+                            <div [hidden]="!nameV.errors.pattern">Name should be only charactor</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Designation" placeholder="Designation"
+                            [(ngModel)]="designation" minlength="2" #designationV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="designationV.touched && !designationV.valid">
+                            <div [hidden]="!designationV.errors.required">designation is required.</div>
+                            <div [hidden]="!designationV.errors.minlength">designation should be 2 char minimum </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Company" placeholder="Company" 
+                        [(ngModel)]="company" minlength="3" #companyV="ngModel" required>
+                        <div class="alert alert-danger" *ngIf="companyV.touched && !companyV.valid">
+                            <div [hidden]="!companyV.errors.required">Company name is required.</div>
+                            <div [hidden]="!companyV.errors.minlength">Company name should be 3 char minimum </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" pattern="[0-9]{10}" class="form-control" name="Phone" placeholder="Phone Number" 
+                        [(ngModel)]="phone" minlength="10" maxlength="10" #phoneV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="phoneV.touched && !phoneV.valid">
+                            <div [hidden]="!phoneV.errors.required">Phone number is required.</div>
+                            <div [hidden]="!phoneV.errors.minlength">Phone number should be 10 char minimum </div>
+                            
+                            <div [hidden]="!phoneV.errors.pattern"> please type only number </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="email" class="form-control" name="Email" placeholder="Email" 
+                        [(ngModel)]="email" minlength="4" maxlength="100" #emailV="ngModel" required email> 
+
+                        <div class="alert alert-danger" *ngIf="emailV.touched && !emailV.valid">
+                            <div [hidden]="!emailV.errors.required">email number is required.</div>
+                            <div [hidden]="!emailV.errors.minlength">email number should be 10 char minimum </div>
+                            <div [hidden]="!emailV.errors.email"> @'company' or providesnames.com  </div>
+
+                            
+                                                        
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="City" placeholder="City" 
+                        [(ngModel)]="city" minlength="3" #cityV="ngModel" required> 
+
+                        <div class="alert alert-danger" *ngIf="cityV.touched && !cityV.valid">
+                            <div [hidden]="!cityV.errors.required">city number is required.</div>
+                            <div [hidden]="!cityV.errors.minlength">city number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="GST" placeholder="GST or PAN Number"
+                        [(ngModel)]="gst" minlength="10" maxlength="30"  #gstV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="gstV.touched && !gstV.valid">
+                            <div [hidden]="!gstV.errors.required">please enter GST or PAN.</div>
+                            <div [hidden]="!gstV.errors.minlength">GST/PAN number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="number" class="form-control" name="Amount" placeholder="1400" value="1400" readonly
+                        [(ngModel)]="amount" minlength="10" maxlength="30"  ngModel>
+                    </div>
+
+                    <div class="form-group col-md-12">
+
+                        <div class="alert alert-danger" *ngIf="billingDetailsV.touched && !billingDetailsV.valid">
+                            <div [hidden]="!billingDetailsV.errors.required">please provide billingDetails.</div>
+                            <div [hidden]="!billingDetailsV.errors.minlength">billingDetails should be 10 char minimum </div>
+                                                                                   
+                        </div>
+
+                        <textarea class="form-control" name="Puprose" placeholder="Billing Details"
+                        [(ngModel)]="billingDetails" minlength="10" maxlength="4000"  #billingDetailsV="ngModel" required></textarea>
+                    </div>
+
+                   
+
+
+
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary mb-4" [disabled]="!Partnership.form.valid">Register parnership </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- for exchibitor         -->
+            <div *ngSwitchCase="'Exhibitor'">
+                <form class="row g-3"  #exhibitor="ngForm" (ngSubmit)="exhibitorLog(exhibitor.value)">
+                    <div class="col-md-6">
+                        
+                        <input type="text" pattern="[a-z]{3,50}" class="form-control" id="name" name="name" placeholder="Full Name"
+                            [(ngModel)]="name" minlength="3" #nameV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="nameV.touched && !nameV.valid">
+                            <div [hidden]="!nameV.errors.required"> Name is required.</div>
+                            <div [hidden]="!nameV.errors.minlength">Name should be 3 char minimum </div>
+                            <div [hidden]="!nameV.errors.pattern">Name should be only charactor</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Designation" placeholder="Designation"
+                            [(ngModel)]="designation" minlength="2" #designationV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="designationV.touched && !designationV.valid">
+                            <div [hidden]="!designationV.errors.required">designation is required.</div>
+                            <div [hidden]="!designationV.errors.minlength">designation should be 2 char minimum </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Company" placeholder="Company" 
+                        [(ngModel)]="company" minlength="3" #companyV="ngModel" required>
+                        <div class="alert alert-danger" *ngIf="companyV.touched && !companyV.valid">
+                            <div [hidden]="!companyV.errors.required">Company name is required.</div>
+                            <div [hidden]="!companyV.errors.minlength">Company name should be 3 char minimum </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" pattern="[0-9]{10}" class="form-control" name="Phone" placeholder="Phone Number" 
+                        [(ngModel)]="phone" minlength="10" maxlength="10" #phoneV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="phoneV.touched && !phoneV.valid">
+                            <div [hidden]="!phoneV.errors.required">Phone number is required.</div>
+                            <div [hidden]="!phoneV.errors.minlength">Phone number should be 10 char minimum </div>
+                            
+                            <div [hidden]="!phoneV.errors.pattern"> please type only number </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="email" class="form-control" name="Email" placeholder="Email" 
+                        [(ngModel)]="email" minlength="4" maxlength="100" #emailV="ngModel" required email> 
+
+                        <div class="alert alert-danger" *ngIf="emailV.touched && !emailV.valid">
+                            <div [hidden]="!emailV.errors.required">email number is required.</div>
+                            <div [hidden]="!emailV.errors.minlength">email number should be 10 char minimum </div>
+                            <div [hidden]="!emailV.errors.email"> @'company' or providesnames.com  </div>
+
+                            
+                                                        
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="City" placeholder="City" 
+                        [(ngModel)]="city" minlength="3" #cityV="ngModel" required> 
+
+                        <div class="alert alert-danger" *ngIf="cityV.touched && !cityV.valid">
+                            <div [hidden]="!cityV.errors.required">city number is required.</div>
+                            <div [hidden]="!cityV.errors.minlength">city number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="GST" placeholder="GST or PAN Number"
+                        [(ngModel)]="gst" minlength="10" maxlength="30"  #gstV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="gstV.touched && !gstV.valid">
+                            <div [hidden]="!gstV.errors.required">please enter GST or PAN.</div>
+                            <div [hidden]="!gstV.errors.minlength">GST/PAN number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="number" class="form-control" name="Amount" placeholder="1400" value="1400" readonly
+                        [(ngModel)]="amount" minlength="10" maxlength="30"  ngModel>
+                    </div>
+
+                    <div class="form-group col-md-12">
+
+                        <div class="alert alert-danger" *ngIf="billingDetailsV.touched && !billingDetailsV.valid">
+                            <div [hidden]="!billingDetailsV.errors.required">please provide billingDetails.</div>
+                            <div [hidden]="!billingDetailsV.errors.minlength">billingDetails should be 10 char minimum </div>
+                                                                                   
+                        </div>
+
+                        <textarea class="form-control" name="Puprose" placeholder="Billing Details"
+                        [(ngModel)]="billingDetails" minlength="10" maxlength="4000"  #billingDetailsV="ngModel" required></textarea>
+                    </div>
+
+                   
+
+
+
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary mb-4" [disabled]="!exhibitor.form.valid">Register parnership </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- for conference         -->
+            <div *ngSwitchCase="'Conference'">
+                <form class="row g-3"  #conference="ngForm" (ngSubmit)="conferenceLog(conference.value)">
+                    <div class="col-md-6">
+                        
+                        <input type="text" pattern="[a-z]{3,50}" class="form-control" id="name" name="name" placeholder="Full Name"
+                            [(ngModel)]="name" minlength="3" #nameV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="nameV.touched && !nameV.valid">
+                            <div [hidden]="!nameV.errors.required"> Name is required.</div>
+                            <div [hidden]="!nameV.errors.minlength">Name should be 3 char minimum </div>
+                            <div [hidden]="!nameV.errors.pattern">Name should be only charactor</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Designation" placeholder="Designation"
+                            [(ngModel)]="designation" minlength="2" #designationV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="designationV.touched && !designationV.valid">
+                            <div [hidden]="!designationV.errors.required">designation is required.</div>
+                            <div [hidden]="!designationV.errors.minlength">designation should be 2 char minimum </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Company" placeholder="Company" 
+                        [(ngModel)]="company" minlength="3" #companyV="ngModel" required>
+                        <div class="alert alert-danger" *ngIf="companyV.touched && !companyV.valid">
+                            <div [hidden]="!companyV.errors.required">Company name is required.</div>
+                            <div [hidden]="!companyV.errors.minlength">Company name should be 3 char minimum </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" pattern="[0-9]{10}" class="form-control" name="Phone" placeholder="Phone Number" 
+                        [(ngModel)]="phone" minlength="10" maxlength="10" #phoneV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="phoneV.touched && !phoneV.valid">
+                            <div [hidden]="!phoneV.errors.required">Phone number is required.</div>
+                            <div [hidden]="!phoneV.errors.minlength">Phone number should be 10 char minimum </div>
+                            
+                            <div [hidden]="!phoneV.errors.pattern"> please type only number </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="email" class="form-control" name="Email" placeholder="Email" 
+                        [(ngModel)]="email" minlength="4" maxlength="100" #emailV="ngModel" required email> 
+
+                        <div class="alert alert-danger" *ngIf="emailV.touched && !emailV.valid">
+                            <div [hidden]="!emailV.errors.required">email number is required.</div>
+                            <div [hidden]="!emailV.errors.minlength">email number should be 10 char minimum </div>
+                            <div [hidden]="!emailV.errors.email"> @'company' or providesnames.com  </div>
+
+                            
+                                                        
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="City" placeholder="City" 
+                        [(ngModel)]="city" minlength="3" #cityV="ngModel" required> 
+
+                        <div class="alert alert-danger" *ngIf="cityV.touched && !cityV.valid">
+                            <div [hidden]="!cityV.errors.required">city number is required.</div>
+                            <div [hidden]="!cityV.errors.minlength">city number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="GST" placeholder="GST or PAN Number"
+                        [(ngModel)]="gst" minlength="10" maxlength="30"  #gstV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="gstV.touched && !gstV.valid">
+                            <div [hidden]="!gstV.errors.required">please enter GST or PAN.</div>
+                            <div [hidden]="!gstV.errors.minlength">GST/PAN number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="number" class="form-control" name="Amount" placeholder="1400" value="1400" readonly
+                        [(ngModel)]="amount" minlength="10" maxlength="30"  ngModel>
+                    </div>
+
+                    
+
+                   
+
+
+
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary mb-4" [disabled]="!conference.form.valid">Register parnership </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- for Visitor         -->
+            <div *ngSwitchCase="'Visitor'">
+                <form class="row g-3"  #visitor="ngForm" (ngSubmit)="visitorLog(visitor.value)">
+                    <div class="col-md-6">
+                        
+                        <input type="text" pattern="[a-z]{3,50}" class="form-control" id="name" name="name" placeholder="Full Name"
+                            [(ngModel)]="name" minlength="3" #nameV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="nameV.touched && !nameV.valid">
+                            <div [hidden]="!nameV.errors.required"> Name is required.</div>
+                            <div [hidden]="!nameV.errors.minlength">Name should be 3 char minimum </div>
+                            <div [hidden]="!nameV.errors.pattern">Name should be only charactor</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Designation" placeholder="Designation"
+                            [(ngModel)]="designation" minlength="2" #designationV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="designationV.touched && !designationV.valid">
+                            <div [hidden]="!designationV.errors.required">designation is required.</div>
+                            <div [hidden]="!designationV.errors.minlength">designation should be 2 char minimum </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="Company" placeholder="Company" 
+                        [(ngModel)]="company" minlength="3" #companyV="ngModel" required>
+                        <div class="alert alert-danger" *ngIf="companyV.touched && !companyV.valid">
+                            <div [hidden]="!companyV.errors.required">Company name is required.</div>
+                            <div [hidden]="!companyV.errors.minlength">Company name should be 3 char minimum </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" pattern="[0-9]{10}" class="form-control" name="Phone" placeholder="Phone Number" 
+                        [(ngModel)]="phone" minlength="10" maxlength="10" #phoneV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="phoneV.touched && !phoneV.valid">
+                            <div [hidden]="!phoneV.errors.required">Phone number is required.</div>
+                            <div [hidden]="!phoneV.errors.minlength">Phone number should be 10 char minimum </div>
+                            
+                            <div [hidden]="!phoneV.errors.pattern"> please type only number </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <input type="email" class="form-control" name="Email" placeholder="Email" 
+                        [(ngModel)]="email" minlength="4" maxlength="100" #emailV="ngModel" required email> 
+
+                        <div class="alert alert-danger" *ngIf="emailV.touched && !emailV.valid">
+                            <div [hidden]="!emailV.errors.required">email number is required.</div>
+                            <div [hidden]="!emailV.errors.minlength">email number should be 10 char minimum </div>
+                            <div [hidden]="!emailV.errors.email"> @'company' or providesnames.com  </div>
+
+                            
+                                                        
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="City" placeholder="City" 
+                        [(ngModel)]="city" minlength="3" #cityV="ngModel" required> 
+
+                        <div class="alert alert-danger" *ngIf="cityV.touched && !cityV.valid">
+                            <div [hidden]="!cityV.errors.required">city number is required.</div>
+                            <div [hidden]="!cityV.errors.minlength">city number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-md-6">
+
+                        <input type="text" class="form-control" name="GST" placeholder="GST or PAN Number"
+                        [(ngModel)]="gst" minlength="10" maxlength="30"  #gstV="ngModel" required>
+
+                        <div class="alert alert-danger" *ngIf="gstV.touched && !gstV.valid">
+                            <div [hidden]="!gstV.errors.required">please enter GST or PAN.</div>
+                            <div [hidden]="!gstV.errors.minlength">GST/PAN number should be 10 char minimum </div>
+                                                                                   
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <input type="number" class="form-control" name="Amount" placeholder="1400" value="1400" readonly
+                        [(ngModel)]="amount" minlength="10" maxlength="30"  ngModel>
+                    </div> -->
+
+                    
+
+                   
+
+
+
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary mb-4" [disabled]="!visitor.form.valid">Register parnership </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- form -->
+
+
+    </div>
+
+</div>

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminModule } from './admin/admin.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,13 +14,15 @@ import { RegisterModule } from './register/register.module';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
+import { StatusPipe } from './shared/status.pipe';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatusPipe,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +42,8 @@ import {ToastModule} from 'primeng/toast';
     ToastModule,
     FormsModule
   ],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent],
-  exports: [AppRoutingModule]
+  exports: [AppRoutingModule,StatusPipe]
 })
 export class AppModule { }

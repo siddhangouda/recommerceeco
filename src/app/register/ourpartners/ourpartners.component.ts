@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { RestApiService } from 'src/app/shared/rest-api.service';
+// import * as $ from "jquery";
+// import * as $ from "jquery";
+
+declare var $: any;
+declare var require: any;
 
 @Component({
   selector: 'app-ourpartners',
   templateUrl: './ourpartners.component.html',
   styleUrls: ['./ourpartners.component.css']
 })
-export class OurpartnersComponent implements OnInit {
+
+export class OurpartnersComponent implements OnInit{
   partners : any =[];
   // partners = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
   responsiveOptions;
+  myobj:any;
  
-
+  
   constructor(private restApi: RestApiService) { 
 
 
@@ -33,16 +40,19 @@ export class OurpartnersComponent implements OnInit {
       }
   ];
   }
-
   ngOnInit() {
 
-    return this.restApi.getEvents().subscribe((data: {}) => {
+      this.restApi.getEvents().subscribe((data) => {
+       
       this.partners = data;
-      console.log(this.partners);
+      this.myobj =  JSON.stringify(this.partners.eventlist[0].ongoing);
+      // this.myobj = JSON.parse(this.partners);
+      // console.log("check json data", this.partners.eventlist[0].ongoing[0]);
+      console.log("sample text", this.myobj);  
+
       })
 
   }
-
   
 }
 

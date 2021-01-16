@@ -12,7 +12,9 @@ export class RestApiService {
   
   // Define API
   // apiURL = 'http://127.0.0.1:8000/';
-  apiURL = 'http://127.0.0.1:8000/events';
+  // apiURL = 'http://127.0.0.1:8000/events';
+  apiURL = 'http://52.66.120.154:89/eventlist';
+
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +31,7 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch employees list
   getEvents(): Observable<Events> {
-    return this.http.get<Events>(this.apiURL + '/list_events')
+    return this.http.get<Events>(this.apiURL )
     .pipe(
       retry(1),
       catchError(this.handleError)
