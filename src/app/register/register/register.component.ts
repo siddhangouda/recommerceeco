@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RestApiService } from 'src/app/shared/rest-api.service';
-import {Events} from 'src/app/shared/events'
-import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -22,9 +21,11 @@ export class customer_details implements OnInit {
   phone;
   company;
   designation;
+  api =   'http://52.66.120.154:89'
 
   constructor(public activeModal : NgbActiveModal,
-    private modalserve : NgbModal) { 
+    private modalserve : NgbModal,
+    private http: HttpClient) { 
 
       this.name = '';
       this.city = '';
@@ -43,7 +44,7 @@ export class customer_details implements OnInit {
 
   agendaDetailsLog(agendaValues : any){
 
-alert("agendaValues:"+ JSON.stringify(agendaValues))
+this.http.post(this.api,  JSON.stringify(agendaValues))
 const link = document.createElement('a');
     link.setAttribute('target', '_blank');
     link.setAttribute('href', 'abc.net/files/test.ino');

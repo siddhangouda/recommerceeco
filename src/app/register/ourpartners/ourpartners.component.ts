@@ -45,7 +45,8 @@ export class OurpartnersComponent implements OnInit{
       this.restApi.getEvents().subscribe((data) => {
        
       this.partners = data;
-      this.myobj =  JSON.stringify(this.partners.eventlist[0].ongoing);
+      this.myobj =  this.partners.eventlist[0].ongoing
+      // this.myobj = JSON.parse(this.myobj.eventlist);
       // this.myobj = JSON.parse(this.partners);
       // console.log("check json data", this.partners.eventlist[0].ongoing[0]);
       console.log("sample text", this.myobj);  

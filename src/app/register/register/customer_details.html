@@ -6,7 +6,7 @@
       <div class="col-md-6">
           
           <input type="text" pattern="[a-z]{3,50}" class="form-control" id="name" name="name" placeholder="Full Name"
-              [(ngModel)]="name" minlength="3" #nameV="ngModel" required>
+              [(ngModel)]="fullname" minlength="3" #nameV="ngModel" required>
 
           <div class="alert alert-danger" *ngIf="nameV.touched && !nameV.valid">
               <div [hidden]="!nameV.errors.required"> Name is required.</div>
