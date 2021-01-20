@@ -13,7 +13,7 @@ export class RestApiService {
   // Define API
   // apiURL = 'http://127.0.0.1:8000/';
   // apiURL = 'http://127.0.0.1:8000/events';
-  apiURL = 'http://52.66.120.154:89/eventlist';
+  apiURL = 'http://52.66.120.154:89';
 
 
   constructor(private http: HttpClient) { }
@@ -31,7 +31,7 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch employees list
   getEvents(): Observable<Events> {
-    return this.http.get<Events>(this.apiURL )
+    return this.http.get<Events>(this.apiURL  + '/eventlist' )
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -40,20 +40,37 @@ export class RestApiService {
 
   // HttpClient API get() method => Fetch employee
   getEvent(id): Observable<Events> {
-    return this.http.get<Events>(this.apiURL + '/EventList/' + id)
+    return this.http.get<Events>(this.apiURL + '/EventList' + id)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }  
 
+
+// getEvents using post method
+  getEventsPost(event_id): any {
+    console.log('id ',event_id)
+    return this.http.post(this.apiURL + '/eventdetails',JSON.stringify(event_id), this.httpOptions).
+    
+    pipe(
+      retry(1),
+      catchError(this.handleError)
+      
+    )
+    
+  }  
+
   // HttpClient API post() method => Create employee
-  createEvent(event): Observable<Events> {
-    return this.http.post<Events>(this.apiURL + '/list_events', JSON.stringify(event) , this.httpOptions)
+  createEvent(data): Observable<Events> {
+    
+    return this.http.post<Events>(this.apiURL + '/eventdetails', JSON.stringify(data )  , this.httpOptions)
+   
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
+    
   }  
 
   // HttpClient API put() method => Update employee

@@ -30,6 +30,8 @@
 </div>
 
 
+
+
 <div class="container-fluid">
     <div class="row">
 
@@ -47,41 +49,45 @@
 
 <div class="container-fluid">
     <div class="row">
-        <app-ourpartners></app-ourpartners>
+        <app-supported-by [csupportedData]= "this.supportedData"></app-supported-by>
     </div>
 </div>
 
 <div class="container-fluid">
     <div class="row">
-        <app-supported-by></app-supported-by>
-    </div>
-</div>
-
-
-
-<div class="container-fluid">
-    <div class="row">
-        <app-mediapartners></app-mediapartners>
+        <app-ourpartners  [cpartnerData] = 'partnersData'></app-ourpartners>
     </div>
 </div>
 
 
 <div class="container-fluid">
     <div class="row">
-        <app-associaton></app-associaton>
+        <app-speakers [cspeakersData]='this.speakersData' [hidden]="!speakersData"></app-speakers>
+    </div>
+</div> 
+
+
+<div class="container-fluid">
+    <div class="row">
+        <app-associaton [cassociationData]='this.associationData'></app-associaton>
     </div>
 </div>
 
 <div class="container-fluid">
     <div class="row">
-        <app-speakers></app-speakers>
+        <app-mediapartners [cmediaData]='this.mediaData'></app-mediapartners>
     </div>
 </div>
 
 
+
+
+
+
+
 <div class="container-fluid">
     <div class="row">
-        <app-testimonals></app-testimonals>
+        <app-testimonals [ctestimonialData]="this.testimonialData"></app-testimonals>
     </div>
 </div>
 

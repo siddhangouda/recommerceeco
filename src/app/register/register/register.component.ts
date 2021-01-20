@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 
+
 @Component({
   selector :'customer_details',
   templateUrl: './customer_details.html',
@@ -21,7 +22,8 @@ export class customer_details implements OnInit {
   mobileNumber;
   city;
   designation;
-  api =   'http://52.66.120.154:89/insertContact'
+  api =   'http://52.66.120.154:89/insertContact';
+  fname:any ="customerDetailsForm"
 
   constructor(public activeModal : NgbActiveModal,
     private modalserve : NgbModal,
@@ -42,10 +44,10 @@ export class customer_details implements OnInit {
 
   }
 
-  agendaDetailsLog(agendaValues : any){
+  agendaDetailsLog(agendaValues : any, fname:any){
 
 // this.http.post(this.api,  JSON.stringify(agendaValues))
-alert("data"+JSON.stringify(agendaValues))
+alert("data"+JSON.stringify(agendaValues,this.fname))
 const link = document.createElement('a');
     link.setAttribute('target', '_blank');
     link.setAttribute('href', 'abc.net/files/test.ino');
@@ -72,28 +74,54 @@ export class RegisterComponent implements OnInit {
   event;
   name: any;
   // curEvent = this.events[this.event] ;
+  id  = {"event_id" :"3" }
+  associationData :any= [];
+  mediaData:any= [];
+  partnersData:any =[];
+  speakersData:any= [];
+  supportedData :any= [];
+  testimonialData :any= [];
+  newarry : any;
+  
+
+  
 
   constructor(private modalserve : NgbModal,
              private route: ActivatedRoute,
              private restApi : RestApiService,
-             ) { }
+             
+             ) { 
+
+              
+             }
+
+
+             
+
 
   ngOnInit() {
 
        // First get the product id from the current route.
 
       //  const routeParams = this.route.snapshot.paramMap;
-       const eventIdFromroute = this.route.snapshot.paramMap.get("id")
+       const event_id1 = this.route.snapshot.paramMap.get("id")
      
        // Find the product that correspond with the id provided in route 
       
-      //  return this.restApi.getEvents().subscribe((data: {}) => {
-      //   this.events = data;
-      //   console.log(this.events);
-      //   console.log("eventIdFromroute" + eventIdFromroute);
-      //   this.event = this.events.find(event => event.id == eventIdFromroute);
-      //   console.log(this.event);
-      //   })
+      return this.restApi.getEventsPost(this.id).subscribe((data: {}) => {
+       this.events = data;
+       this.associationData = this.events.eventlist.association;
+       this.mediaData = this.events.eventlist.media;
+       this.speakersData = this.events.eventlist.speakers;
+       this.partnersData = this.events.eventlist.partners;
+       this.supportedData = this.events.eventlist.supported;
+       this.testimonialData = this.events.eventlist.testimonial;
+
+      // this.partnersData = Object.entries(this.partnersData).map((e) => ( { [e[0]]: e[1] } ));
+       
+       console.log("event with id", this.speakersData);
+      })
+
 
         
       

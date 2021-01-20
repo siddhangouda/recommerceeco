@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 declare var jQuery: any;
 
 
@@ -9,6 +9,8 @@ declare var jQuery: any;
   styleUrls: ['./testimonals.component.css'],
 })
 export class TestimonalsComponent implements OnInit {
+
+  @Input() ctestimonialData: any[];
 
   constructor() { }
 

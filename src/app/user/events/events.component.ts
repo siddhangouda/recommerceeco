@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Config } from 'protractor';
-import { Observable, throwError } from 'rxjs';
 import { RestApiService} from 'src/app/shared/rest-api.service'
-import { Events } from 'src/app/shared/events'
 import {MatDialog} from '@angular/material/dialog';
+
 
 
 
@@ -20,16 +18,24 @@ export class EventsComponent implements OnInit {
   event : any;
   selected: String ;
   event_head :string = "Our Events";
+  upcomig: any;
+  completed1: any;
+  ongoing: any;
+ 
+
   
   constructor(public restApi : RestApiService,
   private dialog : MatDialog,) { }
 
-ngOnInit(): any {
+ngOnInit():  any {
 
 
 return this.restApi.getEvents().subscribe((data: {}) => {
 this.events = data;
-
+this.upcomig = this.events.eventlist[0].upcoming;
+this.ongoing = this.events.eventlist[0].ongoing;
+this.completed1 = this.events.eventlist[0].completed;
+this.events = this.upcomig.concat(this.completed1,this.ongoing);
 if(data){
   console.log("data loaded")
 }
@@ -40,24 +46,31 @@ console.log(this.events);
 
 }
 
-active ():void {
-  this.selected = "ongoining"; 
-  this.event_head = "Active Events"
-  console.log(this.selected);
+active ():any {
+  return this.restApi.getEvents().subscribe((data: {}) => {
+  this.events = data;
+  this.events = this.events.eventlist[0].ongoing;
+  console.log(this.events);
+})
 }
 
-upcoming ():void {
-  this.selected = "ongoining"; 
-  this.event_head = "Upcoming Events"
-  console.log(this.selected);
+
+upcoming ():any {
+  return this.restApi.getEvents().subscribe((data: {}) => {
+    this.events = data;
+    this.events = this.events.eventlist[0].upcoming;
+    console.log(this.events);
+  })
 }
 
-completed ():void {
-  this.selected = "comleted"; 
-  this.event_head = "Completed Events"
-  console.log(this.selected);
-}
+completed ():any {
+  return this.restApi.getEvents().subscribe((data: {}) => {
+    this.events = data;
+    this.events = this.events.eventlist[0].completed;
+    console.log(this.events);
+  })
 
+}
 }
 
 

@@ -1,3 +1,24 @@
 <h1 class="headcolor text-center pt-3 pb-3" >Media Partners </h1>
 <!-- <span class="bdbottom open-close-container" [@bdbottom]="isOpen ? 'open' : 'closed'" ></span> -->
-<div class="container" style="border: 1px solid blue; height:200px;"></div>
+<div class="container" >
+
+<div class="container" style="height: 200px;">
+	<p-carousel [value]="cmediaData" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+		[autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+		<ng-template let-cmediaData pTemplate="item">
+			<div class="product-item">
+				<div class="product-item-content">
+					<div class="p-mb-3">
+					</div>
+					<div class="p-mt-5 ">
+						<img src="{{cmediaData.img_url}}" class="product-image" width="350" height="150" />
+						<!-- <h5> {{partner.partner_name}} </h5> -->
+					</div>
+					
+				</div>
+			</div>
+		</ng-template>
+	</p-carousel>
+</div>
+
+</div>

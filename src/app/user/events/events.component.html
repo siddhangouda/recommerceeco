@@ -39,9 +39,11 @@
                     <div class="row bd1">
                         <div class="row">
                             <div class="col-sm-4" bd1 *ngFor="let event of events ">
-                                <div class=" boxshadow"> <a [title]="event.name" [routerLink]="['/register', event.id] "
-                                        target="_blank"> <img class="fade-in card-img-top img180 rounded"
-                                            src="{{event.fileUpload}}"></a>
+                                <div class=" boxshadow"> 
+                                    <!-- <a  [routerLink]="['/register', event.id]"" target="_blank"> -->
+                                        <img class="fade-in card-img-top img180 rounded"
+                                            src="{{event.fileUpload}}">
+                                    
                                 </div>
                                 <div class="card-text  text-center eventName">{{event.name}}</div>
                             </div>
@@ -50,17 +52,7 @@
 
                 </div>
 
-                <div class="row bd1">
-                    <div class="row">
-                        <div class="col-sm-4" bd1 *ngFor="let event of (events | newstatus : selected ) ">
-                            <div class=" boxshadow"> <a [title]="event.name" [routerLink]="['/register', event.id] "
-                                    target="_blank"> <img class="fade-in card-img-top img180 rounded"
-                                        src="{{event.fileUpload}}"></a>
-                            </div>
-                            <div class="card-text  text-center eventName">{{event.name}}</div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>

@@ -1,54 +1,22 @@
 <h1 class="headcolor text-center pt-3 pb-3">Our Partners </h1>
-<!-- <span class="bdbottom open-close-container" [@bdbottom]="isOpen ? 'open' : 'closed'" ></span> -->
 
-<!-- <div class="container" style="height: 200px;">
-	<p-carousel [value]="partners" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+<div class="container" style="height: 200px;">
+	<p-carousel [value]="cpartnerData" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
 		[autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
-		<ng-template let-partners pTemplate="item">
+		<ng-template let-cpartnerData pTemplate="item">
 			<div class="product-item">
 				<div class="product-item-content">
 					<div class="p-mb-3">
 					</div>
 					<div class="p-mt-5 ">
-						<img src="{{partners.fileUpload}}" class="product-image" width="350" height="150" />
+						<img src="{{cpartnerData.img_url}}" class="product-image" width="350" height="150" />
+						<!-- <h5> {{partner.partner_name}} </h5> -->
 					</div>
+					
 				</div>
 			</div>
 		</ng-template>
 	</p-carousel>
-</div> -->
-<!-- <table class="table table-striped">
-	<thead>
-	<tr>
-	  <th scope="col">#</th>
-	  <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
-	  <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
-	  <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
-	</tr>
-	</thead>
-	<tbody> -->
-<!-- <tr *ngFor="let country of countries">
-	  <th scope="row">{{ country.id }}</th>
-	  <td>
-		<img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-		{{ country.name }}
-	  </td>
-	  <td>{{ country.area | number }}</td>
-	  <td>{{ country.population | number }}</td>
-	</tr> -->
-<!-- </tbody>
-  </table> -->
-
-
-<div class="container">
-	<div class="row">
-		<div class="col-sm-4" *ngFor="let partner of myobj ">
-			<img src="{{ partner.fileUpload }}" class="img-fluid" />
-		
-	</div>
-	</div>
 </div>
-<!-- <span>{{ myobj || JSON }}</span> -->
-<!-- <h1>{{ myobj.name || json}}</h1> -->
 
-{{ myobj.fileUpload }}
+

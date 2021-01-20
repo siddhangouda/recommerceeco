@@ -23,15 +23,15 @@ export class BookstallComponent implements OnInit {
   }
 
   partnershipLog(value: any){
-    console.log("form submitted", JSON.stringify(value) );
+    alert("form submitted"+ JSON.stringify(value) );
   }
 
   exhibitorLog(value: any){
-    console.log("form submitted", JSON.stringify(value) );
+    alert("form submitted"+ JSON.stringify(value) );
   }
 
   conferenceLog(value: any){
-    console.log("form submitted", JSON.stringify(value) );
+    alert("form submitted"+ JSON.stringify(value) );
   }
 
   visitorLog(value: any){

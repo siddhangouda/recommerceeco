@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Input } from '@angular/core';
 import { RestApiService } from 'src/app/shared/rest-api.service';
 // import * as $ from "jquery";
 // import * as $ from "jquery";
@@ -17,6 +17,9 @@ export class OurpartnersComponent implements OnInit{
   // partners = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
   responsiveOptions;
   myobj:any;
+  employeeDetails = { event_id: ''}
+  @Input() cpartnerData: any;
+  newdata;
  
   
   constructor(private restApi: RestApiService) { 
@@ -42,16 +45,11 @@ export class OurpartnersComponent implements OnInit{
   }
   ngOnInit() {
 
-      this.restApi.getEvents().subscribe((data) => {
-       
-      this.partners = data;
-      this.myobj =  this.partners.eventlist[0].ongoing
-      // this.myobj = JSON.parse(this.myobj.eventlist);
-      // this.myobj = JSON.parse(this.partners);
-      // console.log("check json data", this.partners.eventlist[0].ongoing[0]);
-      console.log("sample text", this.myobj);  
+      // console.log("partner details", this.cpartnerData);
+      // this.newdata = Object.entries(this.cpartnerData).map((e) => ( { [e[0]]: e[1] } ));
+      // console.log(typeof(this.cpartnerData))
 
-      })
+      
 
   }
   

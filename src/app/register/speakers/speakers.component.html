@@ -1,5 +1,27 @@
 <h1 class="headcolor text-center pt-3 pb-3" >Speakers </h1>
 <!-- <span class="bdbottom open-close-container" [@bdbottom]="isOpen ? 'open' : 'closed'" ></span> -->
-<div class="container" style="border: 1px solid blue; height:200px;"></div>
+<div class="container-fluid" >
 
 
+    <div class="items">
+        <div class="card" *ngFor="let Speaker of cspeakersData">
+            <div class="card-body">
+                <h4 class="card-title"><img src="{{Speaker.img_url}}"></h4>
+                <div class="template-demo">
+                    <p>{{Speaker.comments}}</p>
+                </div>
+                <hr>
+                <div class="row">
+                    
+                    <div class="col-sm-12">
+                        <div class="profile">
+                            <h4 class="cust-name">{{Speaker.name}}</h4>
+                            <p class="cust-profession">{{Speaker.designation}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    
